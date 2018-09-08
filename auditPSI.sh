@@ -3,12 +3,12 @@ cd $(dirname $0)
 
 if [ "${PSI_API_KEY}" = "" ]
 then
-    echo "Please set the Environment variable PSI_API_KEY."
+    echo 'Please set the Environment variable "PSI_API_KEY".'
     exit 1
 fi
 
 TARGET_CSV_PATH='target.csv'
-REPORT_ROOT_PATH="report"
+REPORT_ROOT_PATH='report'
 PSI_API_URL=https://www.googleapis.com/pagespeedonline/v4/runPagespeed
 
 auditPSI () {
@@ -28,5 +28,5 @@ do
     target_url=`echo ${line} | cut -d ',' -f 1`
     target_description=`echo ${line} | cut -d ',' -f 2`
     echo ${target_description}' ('${target_url}')'
-    auditPSI "${target_url}" `date +%Y-%m-%d-%H-%M-%S`
+    auditPSI "${target_url}" `date +%Y%m%dT%H%M%SZ`
 done

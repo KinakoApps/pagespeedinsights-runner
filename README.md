@@ -16,3 +16,9 @@ vi taget.csv
 export PSI_API_KEY=${YOUR_PageSpeedInsights_API_KEY}
 sh auditPSI.sh
 ```
+
+### POST to Elasticsearch (Optional)
+```
+export ELASTICSEARCH_URL='http://localhost:9200'
+sh postPSI.sh
+```
