@@ -14,5 +14,5 @@ vi taget.csv
 ### Run PageSpeedInsights
 ```
 export PSI_API_KEY=${YOUR_PageSpeedInsights_API_KEY}
-sh run.sh
+sh auditPSI.sh
 ```
