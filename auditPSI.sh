@@ -28,5 +28,5 @@ do
     target_url=`echo ${line} | cut -d ',' -f 1`
     target_description=`echo ${line} | cut -d ',' -f 2`
     echo ${target_description}' ('${target_url}')'
-    auditPSI "${target_url}" `date +%Y%m%dT%H%M%SZ`
+    auditPSI "${target_url}" `date +%Y-%m-%dT%H:%M:%S`
 done

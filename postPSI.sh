@@ -20,8 +20,8 @@ createBulk () {
         echo "${raw_data_path}"
         target_url_value=`dirname ${raw_data_path} | sed "s#${REPORT_ROOT_PATH}\/##g"`
         datetime_value=`basename ${raw_data_path} | sed "s#_${REPORT_FILE_SUFFIX}##g"`
-        date_value=${datetime_value:0:8}
-        post_data=`cat ${raw_data_path} | sed 's#\\\"##g' | sed 's#\\\##g' | sed 's#\`##g' | tr -d '\n' | sed "s#^{#{ \"target_url\": \"${target_url_value}\", \"date\": ${date_value}, \"datetime\": \"${datetime_value}\",#"`
+        date_value=${datetime_value:0:10}
+        post_data=`cat ${raw_data_path} | sed 's#\\\"##g' | sed 's#\\\##g' | sed 's#\`##g' | tr -d '\n' | sed "s#^{#{ \"target_url\": \"${target_url_value}\", \"date\": \"${date_value}\", \"datetime\": \"${datetime_value}\",#"`
         echo "{ \"index\" : { \"_index\" : \"${index_name}\", \"_type\" : \"${type_name}\" } }" >> ${BULK_DATA_PATH}
         echo "${post_data}" >> ${BULK_DATA_PATH}
     done
