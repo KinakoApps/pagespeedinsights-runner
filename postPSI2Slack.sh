@@ -29,17 +29,21 @@ TARGET_CSV_PATH='target.csv'
 
 getTargetInfoFromCSV () {
     url=$1
+    info=''
     for line in `cat ${TARGET_CSV_PATH} | grep -v ^#`
     do
         target_url=`echo ${line} | cut -d ',' -f 1`
         target_description=`echo ${line} | cut -d ',' -f 2`
         if [ "${target_url}" = "${url}" ]
         then
-            echo "${target_description} (${url})"
-        else
-            echo "${url}"
+            info="${target_description} (${url})"
         fi
     done
+    if [ "${info}" = "" ]
+    then
+        info="${url}"
+    fi
+    echo "${info}"
 }
 
 createMessge () {
