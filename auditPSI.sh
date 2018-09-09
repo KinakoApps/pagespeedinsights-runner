@@ -10,6 +10,7 @@ fi
 TARGET_CSV_PATH='target.csv'
 REPORT_ROOT_PATH='report'
 PSI_API_URL=https://www.googleapis.com/pagespeedonline/v4/runPagespeed
+# cf.) https://developers.google.com/speed/docs/insights/v4/reference/pagespeedapi/runpagespeed
 
 auditPSI () {
     target_url=$1
